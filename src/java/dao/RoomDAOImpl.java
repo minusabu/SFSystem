@@ -86,6 +86,7 @@ public class RoomDAOImpl implements RoomDAO {
             String roomUpdateQuery = "UPDATE SFADMIN.ROOM SET "
                     + "IS_LAB = " + is_lab
                     + ", IS_AVAILABLE = " + is_available
+                    + ", LAST_UPDT_TS = CURRENT TIMESTAMP"
                     + " WHERE ROOM_NAME = '" + room_name + "'";
             rowCount = stmt.executeUpdate(roomUpdateQuery);
             System.out.println("updateString =" + roomUpdateQuery);
@@ -124,10 +125,11 @@ public class RoomDAOImpl implements RoomDAO {
             Statement stmt = DBConn.createStatement();
 
             String addRoomQuery = "INSERT INTO SFADMIN.ROOM "
-                    + "(ROOM_NAME, IS_LAB, IS_AVAILABLE) VALUES ('"
+                    + "(ROOM_NAME, IS_LAB, IS_AVAILABLE, CREATED_TS, LAST_UPDT_TS) VALUES ('"
                     + room_name
                     + "', " + is_lab
                     + ", " + is_available
+                    + ", CURRENT TIMESTAMP, CURRENT TIMESTAMP"
                     + ")";
             rowCount = stmt.executeUpdate(addRoomQuery);
             System.out.println("addString =" + addRoomQuery);
