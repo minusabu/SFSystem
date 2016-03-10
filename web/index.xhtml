@@ -7,7 +7,20 @@
 
 
     <h:head>
-        <title>Schedule Facilitator</title>
+        <title>Update Rooms</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta http-equiv="X-UA-Conpatible" content="IE=edge" />
+        <h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>
+            function showAddForm() {
+                document.getElementById('addFormDiv').style.display = "block";
+            }
+        </script>
+
     </h:head>
     <h:body>
 
@@ -26,7 +39,7 @@
                                 <h:outputText value="#{room.roomName}"/>
 
                             </h4>
-                            
+
                             <p class="list-group-item-text">
 
                                 Room Type: 
@@ -66,13 +79,13 @@
                 <div id="addFormDiv" style="display: none">        
                     <h:form id="addRoomForm">
                         Room Name: <h:inputText id="roomNameID" value="#{roomController.theRoomModel.roomName}"/><br/><br/>
-                        
+
                         Room Type: &nbsp;&nbsp;
                         <h:selectOneMenu style="width: 195px" value="#{roomController.theRoomModel.is_lab}">
                             <f:selectItem itemLabel="Lab" itemValue="Lab"/>
                             <f:selectItem itemLabel="Lecture Room" itemValue="Lecture"/>
                         </h:selectOneMenu><br/><br/>
-                        
+
                         Availability: &nbsp;&nbsp;&nbsp;&nbsp;                                
                         <h:selectOneMenu style="width: 195px" value="#{roomController.theRoomModel.is_available}">
                             <f:selectItem itemLabel="Available" itemValue="Available"/>
